@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Кислород</string>
+    <string name="district_select">Выберите район</string>
+    <string name="sport_select">Выберите вид площадки</string>
+    <string name="ground">Воркаут площадки</string>
+    <string name="workout_grounds">Воркаут площадки</string>
+    <string name="football_grounds">Футбольные площадки</string>
+    <string name="basketball_grounds">Баскетбольные площадки</string>
+    <string name="running_grounds">Беговые дорожки</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sports">SportsActivity</string>
+
+</resources>

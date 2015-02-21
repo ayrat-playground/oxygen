@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="Purple" type="color">#3F51B5</item>
+    <item name="DarkPurple" type="color">#1A237E</item>
+    <item name="WhitePurple" type="color">#C5CAE9</item>
+
+</resources>
