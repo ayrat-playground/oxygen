@@ -32,7 +32,6 @@ public class SportsActivity extends ActionBarActivity {
     private void populateListviewWithDistricts(){
 
         toPopulateWithDisticts = (ListView) findViewById(R.id.list_view);
-
         ArrayList<NamedImage> sports=getSportsNamesWithImages();
 
 
