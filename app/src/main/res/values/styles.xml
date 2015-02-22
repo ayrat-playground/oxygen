@@ -15,14 +15,12 @@
         <!-- The rest of your attributes -->
     </style>
 
-    <style name="Style.UpperSetting" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="lowerSetting" >
         <!-- Set AppCompat’s actionBarStyle -->
         <!--  <item name="actionBarStyle">@style/MyActionBarStyle</item> -->
-
-
-        <item name="android:textColorPrimary">@color/background_material_light</item>
         <item name="android:background">@color/Purple</item>
-        <item name="colorPrimary">@color/Purple</item>
+        <item name="android:textColorPrimary">@color/White</item>
+m>
 
 
 
