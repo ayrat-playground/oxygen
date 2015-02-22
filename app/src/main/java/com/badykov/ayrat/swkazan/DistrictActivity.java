@@ -3,7 +3,6 @@ package com.badykov.ayrat.swkazan;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.internal.widget.AdapterViewCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -50,7 +49,7 @@ public class DistrictActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Intent intent = new Intent(DistrictActivity.this, SportsActivity.class);
+                Intent intent = new Intent(DistrictActivity.this, SportActivity.class);
                 String clickedDistrictName =(String) parent.getItemAtPosition(position);
                 intent.putExtra("DistrictName",clickedDistrictName);
                 DistrictActivity.this.startActivity(intent);
