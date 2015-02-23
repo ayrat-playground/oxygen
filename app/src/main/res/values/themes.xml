@@ -7,8 +7,7 @@
     <!-- Set AppCompat’s color theming attrs -->
         <item name="colorPrimary">@color/Purple</item>
         <item name="colorPrimaryDark">@color/DarkPurple</item>
-        <item name="android:textColorPrimary">@color/background_material_light</item>
-        <item name="android:windowBackground">@color/background_material_light</item>
+        <item name="android:windowBackground">@color/White</item>
 
 
 

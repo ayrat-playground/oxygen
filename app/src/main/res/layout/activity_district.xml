@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:label="Выберите район" >
+    android:label="Выберите район"
+    android:theme="@style/Theme.MyTheme">
 
 
     <ListView android:id="@+id/list_view"
