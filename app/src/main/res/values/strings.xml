@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Кислород</string>
+    <string name="app_name">SW Kazan</string>
     <string name="district_select">Выберите район</string>
     <string name="sport_select">Выберите вид площадки</string>
     <string name="ground">Воркаут площадки</string>
