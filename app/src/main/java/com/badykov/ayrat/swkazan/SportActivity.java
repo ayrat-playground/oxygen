@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,16 +22,57 @@ public class SportActivity extends ActionBarActivity {
 
     private static final String[] sportNames={"Воркаут","Футбол","Баскетбол","Беговые дорожки"};
     private static final int[] sportImages={R.drawable.workout, R.drawable.soccer, R.drawable.basketball, R.drawable.running};
-    private ListView toPopulateWithDisticts;
+    private RecyclerView recyclerViewtoShowCardsOfSports;
+    private RecyclerView.Adapter adapterForRecyclerView;
+    private RecyclerView.LayoutManager layoutManagerForRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports);
         setDistrictName();
-        populateListviewWithDistricts();
-        setOnListViewItemClickAction();
+        setRecyclerView();
         customizeActionBar();
+        setOnRecyclerViewClick();
+
+    }
+
+    private void setRecyclerView(){
+
+        ArrayList<NamedImage> sports=getSportsNamesWithImages();
+
+        recyclerViewtoShowCardsOfSports= (RecyclerView) findViewById(R.id.sport_recycler_view);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerViewtoShowCardsOfSports.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManagerForRecyclerView = new LinearLayoutManager(this);
+        recyclerViewtoShowCardsOfSports.setLayoutManager(layoutManagerForRecyclerView);
+
+        // specify an adapter (see also next example)
+
+        adapterForRecyclerView = new SportRecycleViewAdapter(sports);
+        recyclerViewtoShowCardsOfSports.setAdapter(adapterForRecyclerView);
+
+    }
+
+    private void setOnRecyclerViewClick(){
+        recyclerViewtoShowCardsOfSports.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Intent startedIntent=getIntent();
+                        String districtName=startedIntent.getStringExtra("DistrictName");
+                        String sportName=sportNames[position];
+                        Intent intent = new Intent(SportActivity.this, GroundActivity.class);
+                        intent.putExtra("DistrictName",districtName);
+                        intent.putExtra("SportName",sportName);
+                        SportActivity.this.startActivity(intent);
+
+                    }
+                })
+        );
 
     }
 
@@ -62,16 +106,6 @@ public class SportActivity extends ActionBarActivity {
 
     }
 
-    private void populateListviewWithDistricts(){
-
-        toPopulateWithDisticts = (ListView) findViewById(R.id.list_view);
-        ArrayList<NamedImage> sports=getSportsNamesWithImages();
-
-        TextWithImageAdapter adapter= new TextWithImageAdapter(this,R.layout.simpletextitem, sports);
-
-        toPopulateWithDisticts.setAdapter(adapter);
-
-    }
 
 
 
@@ -84,27 +118,6 @@ public class SportActivity extends ActionBarActivity {
         return sports;
     }
 
-    private void setOnListViewItemClickAction() {
-
-        toPopulateWithDisticts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Intent startedIntent=getIntent();
-                String districtName=startedIntent.getStringExtra("DistrictName");
-                NamedImage clickedItem=(NamedImage)parent.getItemAtPosition(position);
-                String sportName=clickedItem.getName();
-                Intent intent = new Intent(SportActivity.this, GroundActivity.class);
-                intent.putExtra("DistrictName",districtName);
-                intent.putExtra("SportName",sportName);
-                SportActivity.this.startActivity(intent);
-
-
-            }
-
-        });
-    }
 
     private void setDistrictName(){
         Intent startedIntent=getIntent();
