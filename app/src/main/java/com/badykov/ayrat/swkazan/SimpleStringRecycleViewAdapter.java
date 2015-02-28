@@ -10,7 +10,7 @@ import android.widget.TextView;
 /**
  * Created by ayrat on 2/23/15.
  */
-public class GroundRecycleViewAdapter extends RecyclerView.Adapter<GroundRecycleViewAdapter.ViewHolder> {
+public class SimpleStringRecycleViewAdapter extends RecyclerView.Adapter<SimpleStringRecycleViewAdapter.ViewHolder> {
 
     private String[] mDataset;
 
@@ -21,20 +21,20 @@ public class GroundRecycleViewAdapter extends RecyclerView.Adapter<GroundRecycle
         public ViewHolder(View v) {
             super(v);
             mCardView = (CardView)v.findViewById(R.id.card_view);
-            mTextView=(TextView)mCardView.findViewById(R.id.info_text);
+            mTextView=(TextView)mCardView.findViewById(R.id.text);
         }
 
     }
 
-    public GroundRecycleViewAdapter(String[] myDataset) {
+    public SimpleStringRecycleViewAdapter(String[] myDataset) {
         mDataset = myDataset;
     }
 
     @Override
-    public GroundRecycleViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public SimpleStringRecycleViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.ground_card, parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.district_card, parent,false);
 
 
         ViewHolder vh = new ViewHolder(v);

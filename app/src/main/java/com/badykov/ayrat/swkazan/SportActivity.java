@@ -31,8 +31,8 @@ public class SportActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports);
         setDistrictName();
-        setRecyclerView();
         customizeActionBar();
+        setRecyclerView();
         setOnRecyclerViewClick();
 
     }

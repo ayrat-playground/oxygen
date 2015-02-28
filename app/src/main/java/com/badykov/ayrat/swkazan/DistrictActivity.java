@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +23,9 @@ public class DistrictActivity extends ActionBarActivity {
 
 
     private static final String[] districtNames={"Авиастроительный","Вахитовский","Кировский","Московский","Ново-Савиновский","Приволжский","Советский"};
-    private ListView toPopulateWithDisticts;
+    private RecyclerView recyclerViewtoShowCardsOfDistricts;
+    private RecyclerView.Adapter adapterForRecyclerView;
+    private RecyclerView.LayoutManager layoutManagerForRecyclerView;
 
 
     @Override
@@ -30,9 +34,30 @@ public class DistrictActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_district);
 
-        populateListviewWithDistricts();
-        setOnListViewItemClickAction();
+
         customizeActionBar();
+        setRecyclerView();
+        setOnRecyclerViewClick();
+
+    }
+
+    private void setRecyclerView(){
+
+
+        recyclerViewtoShowCardsOfDistricts = (RecyclerView) findViewById(R.id.district_recycler_view);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerViewtoShowCardsOfDistricts.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManagerForRecyclerView = new LinearLayoutManager(this);
+        recyclerViewtoShowCardsOfDistricts.setLayoutManager(layoutManagerForRecyclerView);
+
+        // specify an adapter (see also next example)
+
+        adapterForRecyclerView = new SimpleStringRecycleViewAdapter(districtNames);
+        recyclerViewtoShowCardsOfDistricts.setAdapter(adapterForRecyclerView);
 
     }
     private void customizeActionBar(){
@@ -65,45 +90,26 @@ public class DistrictActivity extends ActionBarActivity {
 
     }
 
-    private void populateListviewWithDistricts(){
+    private void setOnRecyclerViewClick(){
+        recyclerViewtoShowCardsOfDistricts.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Intent intent = new Intent(DistrictActivity.this, SportActivity.class);
+                        String clickedDistrictName =districtNames[position];
+                        intent.putExtra("DistrictName",clickedDistrictName);
+                        DistrictActivity.this.startActivity(intent);
 
-        toPopulateWithDisticts = (ListView) findViewById(R.id.list_view);
-
-        ArrayList<String> districtNamesAsArray=getArrayListFromStringArray(districtNames);
-
-        OneLineStringAdapter sa= new OneLineStringAdapter(this,R.layout.simpletextitem, districtNamesAsArray);
-
-        toPopulateWithDisticts.setAdapter(sa);
-
-    }
-
-    private void setOnListViewItemClickAction(){
-
-        toPopulateWithDisticts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Intent intent = new Intent(DistrictActivity.this, SportActivity.class);
-                String clickedDistrictName =(String) parent.getItemAtPosition(position);
-                intent.putExtra("DistrictName",clickedDistrictName);
-                DistrictActivity.this.startActivity(intent);
-
-
-            }
-
-        });
+                    }
+                })
+        );
 
     }
 
 
 
 
-    private ArrayList<String> getArrayListFromStringArray(String[] stringArray){
+   /* */
 
-       return  new ArrayList<String>(Arrays.asList(stringArray));
-
-    }
 
 
 

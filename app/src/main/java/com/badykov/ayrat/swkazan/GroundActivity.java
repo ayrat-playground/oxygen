@@ -41,7 +41,7 @@ public class GroundActivity extends ActionBarActivity {
 
         // specify an adapter (see also next example)
         String[] data={"Rocknroll", "Rock","Punk"};
-        adapterForRecyclerView = new GroundRecycleViewAdapter(data);
+        adapterForRecyclerView = new SimpleStringRecycleViewAdapter(data);
         recyclerViewtoShowCardsOfGrounds.setAdapter(adapterForRecyclerView);
 
     }
