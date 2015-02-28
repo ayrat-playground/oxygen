@@ -16,46 +16,62 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin" />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:onClick="onDistrictClick"
-        android:clickable="true"
-        android:focusable="true"
+    <RelativeLayout
+        android:id="@+id/district_name"
         android:layout_alignParentBottom="true"
-
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:theme="@style/lowerSetting"
+        android:background="@color/Purple"
 
         >
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imagebackfordistrict"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/district"
             android:layout_alignParentLeft="true"
-            android:paddingBottom="5dp"
+            android:src="@drawable/left"
             android:paddingRight="5dp"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
-            android:background="@color/Purple"
+            android:paddingBottom="5dp"
+            android:onClick="onDistrictClick"
+            android:clickable="true"
+            android:focusable="true"
+
 
 
             />
 
         <TextView
-            android:id="@+id/text"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:id="@+id/textfordistrict"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
+            android:layout_centerInParent="true"
             android:textSize="15dp"
-            android:textAppearance="@style/Style.Item"
             android:background="@color/Purple"
             android:textColor="@color/White"
             />
 
-        
+        <ImageView
+            android:id="@+id/imagefordistrict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/district"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
 
-    </LinearLayout>
+
+
+
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

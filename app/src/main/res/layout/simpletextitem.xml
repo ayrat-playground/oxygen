@@ -6,11 +6,11 @@
     android:padding="20dp" >
 
     <TextView android:id="@+id/text"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textAppearance="@style/Style.Item"
-        />
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:textAppearance="@style/Style.Item"
+    />
 
 </LinearLayout>

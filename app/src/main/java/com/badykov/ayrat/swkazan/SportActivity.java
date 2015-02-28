@@ -109,7 +109,7 @@ public class SportActivity extends ActionBarActivity {
     private void setDistrictName(){
         Intent startedIntent=getIntent();
         String districtName=startedIntent.getStringExtra("DistrictName");
-        TextView toShowDistrictName=(TextView)findViewById(R.id.text);
+        TextView toShowDistrictName=(TextView)findViewById(R.id.textfordistrict);
         toShowDistrictName.setText(districtName);
     }
 

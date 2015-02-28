@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,6 +25,8 @@ public class GroundActivity extends ActionBarActivity {
         setSportName();
 
     }
+
+
     private void setRecyclerView(){
 
         recyclerViewtoShowCardsOfGrounds= (RecyclerView) findViewById(R.id.ground_recycler_view);
@@ -49,13 +49,13 @@ public class GroundActivity extends ActionBarActivity {
     private void setDistrictName(){
 
         String districtName=intentThatStartedThisActivity.getStringExtra("DistrictName");
-        TextView toShowDistrictName=(TextView)findViewById(R.id.text);
+        TextView toShowDistrictName=(TextView)findViewById(R.id.textfordistrict);
         toShowDistrictName.setText(districtName);
     }
     private void setSportName(){
 
         String sportName=intentThatStartedThisActivity.getStringExtra("SportName");
-        TextView toShowDistrictName=(TextView)findViewById(R.id.text1);
+        TextView toShowDistrictName=(TextView)findViewById(R.id.textforsport);
         toShowDistrictName.setText(sportName);
     }
 

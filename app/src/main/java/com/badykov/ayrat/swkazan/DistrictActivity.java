@@ -107,8 +107,4 @@ public class DistrictActivity extends ActionBarActivity {
 
 
 
-
-
-
-
 }

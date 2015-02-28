@@ -14,90 +14,119 @@
 
 
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/sport_name"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:orientation="horizontal"
-        android:onClick="onSportClick"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_above="@+id/district_name"
         android:theme="@style/lowerSetting"
-
-
+        android:background="@color/Purple"
 
         >
 
         <ImageView
-            android:id="@+id/image1"
+            android:id="@+id/imagebackforsport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/left"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:onClick="onSportClick"
+            android:clickable="true"
+            android:focusable="true"
+
+
+
+            />
+
+        <TextView
+            android:id="@+id/textforsport"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textSize="15dp"
+            android:background="@color/Purple"
+            android:textColor="@color/White"
+            />
+
+        <ImageView
+            android:id="@+id/imageforsport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:src="@drawable/sport"
-            android:layout_alignParentLeft="true"
             android:paddingRight="5dp"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:background="@color/Purple"
+
 
 
             />
 
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:textSize="15dp"
-            android:background="@color/Purple"
-            android:textColor="@color/White"
-            />
-
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/district_name"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:onClick="onDistrictClick"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_alignParentBottom="true"
-
-
-
-
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:theme="@style/lowerSetting"
+        android:background="@color/Purple"
 
         >
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imagebackfordistrict"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/district"
             android:layout_alignParentLeft="true"
-            android:paddingBottom="5dp"
+            android:src="@drawable/left"
             android:paddingRight="5dp"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
-            android:background="@color/Purple"
+            android:paddingBottom="5dp"
+            android:onClick="onDistrictClick"
+            android:clickable="true"
+            android:focusable="true"
+
 
 
             />
 
         <TextView
-            android:id="@+id/text"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:id="@+id/textfordistrict"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
+            android:layout_centerInParent="true"
             android:textSize="15dp"
             android:background="@color/Purple"
             android:textColor="@color/White"
+            />
+
+        <ImageView
+            android:id="@+id/imagefordistrict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/district"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+
+
+
 
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>
